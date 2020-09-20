@@ -29,6 +29,12 @@ const debug = require("debug")(
 
 const app = express();
 
+require('./configs/db.config');
+
+require('./configs/session.config')(app);
+
+require('./configs/passport.config')(app);
+
 // Middleware Setup
 app.use(logger("dev"));
 app.use(bodyParser.json());
@@ -55,5 +61,17 @@ app.locals.title = "Express - Generated with IronGenerator";
 
 const index = require("./routes/index");
 app.use("/", index);
+
+app.use((req, res, next) => next(createError(404)));
+
+
+app.use((error, req, res) => {
+
+  res.locals.message = error.message;
+  res.locals.error = req.app.get('env') === 'development' ? error : {};
+
+  res.status(error.status || 500);
+  res.render('error');
+});
 
 module.exports = app;
