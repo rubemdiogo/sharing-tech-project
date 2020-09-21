@@ -1,0 +1,29 @@
+
+<div>
+  <h2> Sign Up </h2>
+  <form method="POST" action="/signup">
+  <Label>Username</Label>
+  <input type="text" name="username">
+  {{#if username }}
+  {{>errorPartial username}}
+  {{/if}}
+
+  <Label>Email</Label>
+  <input type="email" name="email">
+  {{#if email }}
+  {{>errorPartial email}}
+  {{/if}}
+
+
+  <Label>Password</Label>
+  <input type="password" name="password">
+  {{#if password }}
+  {{>errorPartial password}}
+  {{/if}}
+
+<button type="submit"> Submit </button>
+{{#if errorMessage}}
+{{>errorPartial errorMessage}}
+{{/if}} 
+  </form>
+</div>
