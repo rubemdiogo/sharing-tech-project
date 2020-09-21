@@ -1,0 +1,13 @@
+<div>
+  <h2> Login </h2>
+  <form method="POST" action="/login">
+  <Label>E-mail</Label>
+  <input type="email" name="email">
+  <Label>Password</Label>
+  <input type="password" name="password">
+  {{#if errorMessage }}
+  {{>errorPartial errorMessage}}
+  {{/if}}
+  <button type="submit">Login</button>
+  </form>
+  </div>

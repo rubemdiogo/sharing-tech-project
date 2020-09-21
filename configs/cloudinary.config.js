@@ -1,6 +1,6 @@
+// const multer = require("multer");
 // const cloudinary = require("cloudinary");
 // const cloudinaryStorage = require("multer-storage-cloudinary");
-// const multer = require("multer");
 
 // cloudinary.config({
 //   cloud_name: process.env.CLOUDINARY_NAME,
@@ -10,13 +10,12 @@
 
 // const storage = cloudinaryStorage({
 //   cloudinary: cloudinary,
-//   folder: "movies", 
+//   folder: "movies",
 //   allowedFormats: ["jpg", "png"],
 //   filename: function (req, file, cb) {
-//     cb(null, file.originalname); 
+//     cb(null, file.originalname);
 //   },
 // });
-
 
 // const uploadCloud = multer({ storage: storage });
 

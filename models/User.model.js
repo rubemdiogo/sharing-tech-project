@@ -2,11 +2,10 @@ const { Schema, model } = require("mongoose");
 
 const UserSchema = new Schema(
   {
-    username: {
+    name: {
       type: String,
       trim: true,
-      require: [true, "User name is require."],
-      unique: true,
+      required: [true, "Name is require."],
     },
 
     email: {
@@ -19,24 +18,22 @@ const UserSchema = new Schema(
 
     passwordHash: {
       type: String,
-      require: [true, "Password is required."],
+      required: [true, "Password is required."],
     },
 
-    profile: {
-      name: String,
-      occupation: {
-        type: String,
-        enum: ["Web Developer", "Data Analytics", "UX/UI Design"],
-      },
-      skills: String,
-      image: {
-        type: String,
-        default: "/public/images/profilephotodefault.png",
-      },
-      gitHub: String,
-      aboutMe: String,
+    occupation: {
+      type: String,
+      enum: ["Web Developer", "Data Analytics", "UX/UI Design"],
     },
+    skills: String,
+    image: {
+      type: String,
+      default: "/images/profilephotodefault.png",
+    },
+    gitHub: String,
+    aboutMe: String,
   },
+
   {
     timestamps: true,
   }

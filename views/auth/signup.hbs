@@ -2,10 +2,10 @@
 <div>
   <h2> Sign Up </h2>
   <form method="POST" action="/signup">
-  <Label>Username</Label>
-  <input type="text" name="username">
-  {{#if username }}
-  {{>errorPartial username}}
+  <Label>Name</Label>
+  <input type="text" name="name">
+  {{#if name }}
+  {{>errorPartial name}}
   {{/if}}
 
   <Label>Email</Label>
@@ -13,7 +13,6 @@
   {{#if email }}
   {{>errorPartial email}}
   {{/if}}
-
 
   <Label>Password</Label>
   <input type="password" name="password">
