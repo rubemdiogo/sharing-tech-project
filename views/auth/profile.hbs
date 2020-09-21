@@ -1,0 +1,19 @@
+{{#if this}}
+<div>
+<h2>Welcome to SharingTech, {{name}} !</h2>
+<h4>Profile Page</h4>
+<img src="{{this.image}}">
+<p><strong>Name: </strong>{{this.name}}</p>
+<p><strong>E-mail: </strong>{{this.email}}</p>
+<p><strong>Occupation: </strong>{{this.occupation}}</p>
+<p><strong>Skills: </strong>{{this.skills}}</p>
+<p><strong>GitHub: </strong>{{this.github}}</p>
+<p><strong>About Me: </strong>{{this.aboutMe}}</p>
+<a href="/profile-edit/{{_id}}">Update Profile</a>
+<a href="/logout">Logout</a>
+{{else}}
+<p>Sorry, no logged in user!</p>
+</div>
+{{/if}}
+<a href="/delete-user/{{this._id}}" class="text-danger" >Delete Account</a>
+
