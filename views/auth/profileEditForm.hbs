@@ -1,0 +1,43 @@
+
+{{#with user}}
+<div class="container">
+   <div class="d-flex justify-content-center">
+
+      <form class="form-container" action="/profile-edit/{{_id}}" method="POST">
+
+         <h2 class="mb-4 pb-3 d-flex justify-content-center" style="color: #A0FFE3;">Update Profile</h2>
+
+         <div class="d-flex flex-column">
+
+             <img class="rounded mx-auto d-block" src="{{this.image}}" alt="profile image" width=80 height=80>
+             <label class="label-form mt-2" style="color: #A0FFE3;">Image: </label>
+            <input class="rounded-pill border border-secondary" type="text" name="image" value="{{image}}">
+
+            <label class="label-form mt-2" style="color: #A0FFE3;">Name: </label>
+            <input class="rounded-pill border border-secondary" type="text" name="name" value="{{name}}">
+
+            <label class="label-form mt-2" style="color: #A0FFE3;">Occupation: </label>
+            <select class="rounded-pill border border-secondary" id="occupation" name="occupation"
+               value="{{occupation}}">
+               <option value="Web Developer" {{#if isWebDev}}selected{{/if}}>Web Developer</option>
+               <option value="Data Analytics" {{#if isData}}selected{{/if}}>Data Analytics</option>
+               <option value="UX/UI Design" {{#if isUx}}selected{{/if}}>UX/UI Design</option>
+            </select>
+
+            <label class="label-form mt-2" style="color: #A0FFE3;">GitHub: </label>
+            <input class="rounded-pill border border-secondary" type="url" name="gitHub" value="{{gitHub}}">
+
+            <label class="label-form mt-2" style="color: #A0FFE3;">Skills: </label>
+            <textarea class="rounded-lg border border-secondary" type="text" name="skills" value="{{skills}}"></textarea>
+
+            <label class="label-form mt-2" style="color: #A0FFE3;">About Me: </label>
+            <textarea class="rounded-lg border border-secondary" name="aboutMe" value="{{aboutMe}}"></textarea>
+
+            <button class="btn-form mt-4 rounded-pill border border-secondary btn btn-secondary btn-lg"
+               style="background-color: #A0FFE3; color: #575267" type="submit">Update</button>
+
+         </div>
+      </form>
+   </div>
+</div>
+{{/with}}
