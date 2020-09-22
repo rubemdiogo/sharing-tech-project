@@ -1,28 +1,43 @@
+
 {{#with user}}
-<form action="/profile-edit/{{_id}}" method="POST"> 
-<label>Name</label>
-<input type="text" name="name" value="{{name}}">
-<label>Occupation</label>
-   <select id="occupation" name="occupation">
-      <option value="{{occupation}}">Web Developer</option>
-      <option value="{{occupation}}">Data Analytics</option>
-      <option value="{{occupation}}">UX/UI Design</option>
-    </select>
-<label>Skills</label>
-<input type="text" name="skills" value="{{skills}}">
+<div class="container">
+   <div class="d-flex justify-content-center">
 
-<label>Image</label>
-<input type="text" name="image" value="{{image}}">
+      <form class="form-container" action="/profile-edit/{{_id}}" method="POST">
 
-<label>GitHub</label>
-<input type="url" name="github" value="{{github}}">
+         <h2 class="mb-4 pb-3 d-flex justify-content-center" style="color: #A0FFE3;">Update Profile</h2>
 
-<label>About Me</label>
-<input type="textarea" name="aboutMe" value="{{aboutMe}}">
-<button type="submit">Update</button>
+         <div class="d-flex flex-column">
 
-</form>
+             <img class="rounded mx-auto d-block" src="{{this.image}}" alt="profile image" width=80 height=80>
+             <label class="label-form mt-2" style="color: #A0FFE3;">Image: </label>
+            <input class="rounded-pill border border-secondary" type="text" name="image" value="{{image}}">
+
+            <label class="label-form mt-2" style="color: #A0FFE3;">Name: </label>
+            <input class="rounded-pill border border-secondary" type="text" name="name" value="{{name}}">
+
+            <label class="label-form mt-2" style="color: #A0FFE3;">Occupation: </label>
+            <select class="rounded-pill border border-secondary" id="occupation" name="occupation"
+               value="{{occupation}}">
+               <option value="Web Developer" {{#if isWebDev}}selected{{/if}}>Web Developer</option>
+               <option value="Data Analytics" {{#if isData}}selected{{/if}}>Data Analytics</option>
+               <option value="UX/UI Design" {{#if isUx}}selected{{/if}}>UX/UI Design</option>
+            </select>
+
+            <label class="label-form mt-2" style="color: #A0FFE3;">GitHub: </label>
+            <input class="rounded-pill border border-secondary" type="url" name="gitHub" value="{{gitHub}}">
+
+            <label class="label-form mt-2" style="color: #A0FFE3;">Skills: </label>
+            <textarea class="rounded-lg border border-secondary" type="text" name="skills" value="{{skills}}"></textarea>
+
+            <label class="label-form mt-2" style="color: #A0FFE3;">About Me: </label>
+            <textarea class="rounded-lg border border-secondary" name="aboutMe" value="{{aboutMe}}"></textarea>
+
+            <button class="btn-form mt-4 rounded-pill border border-secondary btn btn-secondary btn-lg"
+               style="background-color: #A0FFE3; color: #575267" type="submit">Update</button>
+
+         </div>
+      </form>
+   </div>
+</div>
 {{/with}}
-
-    
- 

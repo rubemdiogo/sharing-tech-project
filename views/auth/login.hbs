@@ -1,13 +1,18 @@
-<div>
-  <h2> Login </h2>
-  <form method="POST" action="/login">
-  <Label>E-mail</Label>
-  <input type="email" name="email">
-  <Label>Password</Label>
-  <input type="password" name="password">
-  {{#if errorMessage }}
-  {{>errorPartial errorMessage}}
-  {{/if}}
-  <button type="submit">Login</button>
-  </form>
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <form class="form-container" method="POST" action="/login">
+      <h2 class="mb-4 pb-3 d-flex justify-content-center" style="color: #A0FFE3;"> Login </h2>
+      <div class="d-flex flex-column">
+        <label style="color: #A0FFE3;">E-mail:</label>
+        <input class="rounded-pill border border-secondary" type="email" name="email">
+        <label class="label-form mt-2" style="color: #A0FFE3;">Password:</label>
+        <input class="rounded-pill border border-secondary" type="password" name="password">
+        {{#if errorMessage }}
+        {{>errorPartial errorMessage}}
+        {{/if}}
+        <button class="btn-form mt-4 rounded-pill border border-secondary btn btn-secondary btn-lg"
+          style="background-color: #A0FFE3; color: #575267" type="submit">Login</button>
+      </div>
+    </form>
   </div>
+</div>

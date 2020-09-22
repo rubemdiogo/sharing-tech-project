@@ -25,37 +25,24 @@ router.post("/signup", async (req, res) => {
   const error = {};
   if (!name || typeof name !== "string") {
     error.name = "name is required";
-    res.render("auth/signup", {
-      errorMessage: "name is required",
-      name: true,
-    });
   }
 
   if (!email || !email.match(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/)) {
     error.email = "Email is required and should be a valid Email address";
-    res.render("auth/signup", {
-      errorMessage: "Email is required and should be a valid Email address",
-      email: true,
-    });
   }
 
   if (
-    !password &&
+    !password ||
     !password.match(
       /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/
     )
   ) {
     error.password =
       "Password is required, should be at least 8 characters long, should contain an uppercase letter, lowercase letter, a number and a special character";
-    res.render("auth/signup", {
-      errorMessage:
-        "Password is required, should be at least 8 characters long, should contain an uppercase letter, lowercase letter, a number and a special character",
-      password: true,
-    });
   }
 
   if (Object.keys(error).length) {
-    res.render("auth/signup", error);
+    return res.render("auth/signup", error);
   }
 
   try {
@@ -100,10 +87,18 @@ router.get("/profile", (req, res) => {
   return res.render("auth/profile", req.user);
 });
 
+//GET - update:
+
 router.get("/profile-edit/:id", async (req, res) => {
   console.log(req.user);
+  req.user.isWebDev = req.user.occupation === "Web Developer";
+  req.user.isData = req.user.occupation === "Data Analytics";
+  req.user.isUx = req.user.occupation === "UX/UI Design"
   return res.render("auth/profileEditForm", { user: req.user });
 });
+
+//POST - update:
+
 router.post("/profile-edit/:id", async (req, res) => {
   try {
     console.log(req.body);
@@ -118,12 +113,14 @@ router.post("/profile-edit/:id", async (req, res) => {
   }
 });
 
+//GET - logout:
+
 router.get("/logout", (req, res) => {
   req.session.destroy();
   res.redirect("/");
 });
 
-// rota delete User
+// GET - delete User:
 router.get("/delete-user/:id", async (req, res) => {
   try {
     const result = await User.deleteOne({ _id: req.params.id });
@@ -133,4 +130,5 @@ router.get("/delete-user/:id", async (req, res) => {
     console.error(err);
   }
 });
+
 module.exports = router;

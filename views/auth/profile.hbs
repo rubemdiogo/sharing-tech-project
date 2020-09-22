@@ -1,19 +1,38 @@
-{{#if this}}
-<div>
-<h2>Welcome to SharingTech, {{name}} !</h2>
-<h4>Profile Page</h4>
-<img src="{{this.image}}">
-<p><strong>Name: </strong>{{this.name}}</p>
-<p><strong>E-mail: </strong>{{this.email}}</p>
-<p><strong>Occupation: </strong>{{this.occupation}}</p>
-<p><strong>Skills: </strong>{{this.skills}}</p>
-<p><strong>GitHub: </strong>{{this.github}}</p>
-<p><strong>About Me: </strong>{{this.aboutMe}}</p>
-<a href="/profile-edit/{{_id}}">Update Profile</a>
-<a href="/logout">Logout</a>
-{{else}}
-<p>Sorry, no logged in user!</p>
-</div>
-{{/if}}
-<a href="/delete-user/{{this._id}}" class="text-danger" >Delete Account</a>
 
+{{#if this}}
+<div class="container">
+<div class="mt-5 ml-2 mb-3">
+<h2 class="d-flex justify-content-center m-auto rounded-lg p-3" style="background-color:#A0FFE3; width: 800px; color: #575267">Welcome to SharingTech, {{name}}!</h2>
+</div>
+<div class="d-flex justify-content-center">
+  <div class="profile-container">
+    <div class="profile-card">
+      <div class="container-img-profile col-md-4 d-flex flex-column bd-highlight">
+        <img class="card-img" src="{{this.image}}" alt="profile image" width=150 height=150>
+        <a class="btn-profile mt-3 ml-3 btn-sm btn btn-secondary rounded-pill border border-ligth"
+          style="background-color: #A0FFE3; color: #575267" href="/profile-edit/{{_id}}">Update Profile</a>
+        <a class="btn-profile mt-3 ml-3 btn-sm btn btn-secondary rounded-pill border border-ligth"
+          style="background-color: #A0FFE3; color: #575267" href="/logout">Logout</a>
+        {{else}}
+        <p>Sorry, no logged in user!</p>
+        {{/if}}
+        <a class="btn-profile mt-3 ml-3 btn-sm btn btn-danger rounded-pill border border-danger"
+          href="/delete-user/{{this._id}}">Delete Account</a>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body mt-3">
+          <h4>Profile Page</h4>
+          <div class="profile-details mt-3">
+            <p><strong>Name: </strong>{{this.name}}</p>
+            <p><strong>E-mail: </strong>{{this.email}}</p>
+            <p><strong>Occupation: </strong>{{this.occupation}}</p>
+            <p><strong>GitHub: </strong>{{this.github}}</p>
+            <p><strong>Skills: </strong>{{this.skills}}</p>
+            <p><strong>About Me: </strong>{{this.aboutMe}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

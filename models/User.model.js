@@ -25,12 +25,16 @@ const UserSchema = new Schema(
       type: String,
       enum: ["Web Developer", "Data Analytics", "UX/UI Design"],
     },
+
     skills: String,
+
     image: {
       type: String,
       default: "/images/profilephotodefault.png",
     },
+    
     gitHub: String,
+
     aboutMe: String,
   },
 
