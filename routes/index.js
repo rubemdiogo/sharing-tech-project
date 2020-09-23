@@ -89,11 +89,11 @@ router.get("/profile", (req, res) => {
 
 //GET - update:
 
-router.get("/profile-edit/:id", async (req, res) => {
+router.get("/profile-edit/:id", (req, res) => {
   console.log(req.user);
   req.user.isWebDev = req.user.occupation === "Web Developer";
   req.user.isData = req.user.occupation === "Data Analytics";
-  req.user.isUx = req.user.occupation === "UX/UI Design"
+  req.user.isUx = req.user.occupation === "UX/UI Design";
   return res.render("auth/profileEditForm", { user: req.user });
 });
 

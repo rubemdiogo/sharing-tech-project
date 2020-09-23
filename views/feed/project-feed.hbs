@@ -1,0 +1,10 @@
+<h1>Feed</h1>
+<hr>
+{{#each project}}
+  <div>
+    <h3>{{title}}</h3>
+    <a href="/project-feed/project-create">Creat Project</a>
+    <a href="/project-feed/{{_id}}/project-edit">Edit</a>
+  </div>
+  <hr>
+{{/each}}
