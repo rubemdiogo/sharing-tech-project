@@ -40,7 +40,7 @@ require("./configs/passport.config")(app);
 app.use(cors());
 app.use(logger("dev"));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Express View engine setup
@@ -60,12 +60,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 app.locals.title = "Sharing Tech";
-
-// const index = require("./routes/index");
-// app.use("/", index);
-
-// const feed = require("./routes/feed");
-// app.use("/feed", feed);
 
 app.use("/", require("./routes/index.js"));
 app.use("/", require("./routes/feed.js"));

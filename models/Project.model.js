@@ -10,7 +10,7 @@ const FeedSchema = new Schema(
     },
     createdBy: { type: Schema.Types.ObjectId, ref: "User" },
 
-    description: { type: [String], required: true },
+    description: { type: String, required: true },
 
     image: { type: String, default: "/public/images/default.png" },
   },

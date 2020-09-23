@@ -4,14 +4,28 @@ const router = express.Router();
 
 const Project = require("../models/Project.model");
 
-// Crud Criar
-router.get("/project-create", (req, res) => res.render("/feed/project-create"));
+router.get("/project-feed", (req, res, next) => {
+  res.render("feed/project-feed");
+});
 
-router.post("/feed/project-create", async (req, res) => {
-  console.log("req.body --> ", req.body);
-  const { title, typeOfskills, createdBy, description, image } = req.body;
+// CRUD:
+
+//GET - create:
+
+router.get("/project-create", (req, res) => res.render("feed/project-create"));
+
+//POST - create:
+
+router.post("/project-create", async (req, res) => {
+
+  const { title, typeOfskills, description} = req.body;
+
+  const createdBy = req.user._id;
+  const email = req.user.email;
+  console.log(req.body);
+
   try {
-    const result = Project.create(req.body);
+    const result = await Project.create({title, typeOfskills, description, createdBy, email});
     res.redirect("/project-feed");
     console.log("create project -- > ", result);
   } catch (err) {
@@ -21,9 +35,16 @@ router.post("/feed/project-create", async (req, res) => {
 
 //GET - update:
 
-router.get("/feed/project-edit/:id", (req, res) =>
-  res.render("feed/project-edit")
-);
+router.get('/project-feed/:id/project-edit', (req, res) => {
+  const { id } = req.params;
+ 
+  Project.findById(id)
+    .then(projectToEdit => {
+      console.log(projectToEdit);
+      res.render('project-edit', bookToEdit);
+    })
+    .catch(error => console.log(`Error while getting a single project for edit: ${error}`));
+});
 
 //POST - update:
 
@@ -41,5 +62,16 @@ router.post("/feed/project-edit/:id", async (req, res) => {
   }
 });
 
-//
+//GET delete:
+
+router.get("/delete-project/:id", async (req, res) => {
+  try {
+    const result = await Project.deleteOne({ _id: req.params.id });
+    console.log("delete --> ", result);
+    res.redirect("/project-feed");
+  } catch (err) {
+    console.error(err);
+  }
+});
+
 module.exports = router;

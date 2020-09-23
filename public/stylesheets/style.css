@@ -1,5 +1,6 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 100vw;
 }
 
 a {
@@ -18,15 +19,10 @@ a {
 }
 
 .btn-index {
-  display: flex;
-  justify-content: center;
   margin-top: auto;
   margin-bottom: auto;
-  /* margin-left: 1.8rem; */
-  padding: 0 2rem 0 2rem;
-  align-items: flex-end;
-  /* align-self: flex-end; */
-  /* flex-direction: column-reverse; */
+  width: 250px;
+  height: 50px;
 }
 
 .container {
