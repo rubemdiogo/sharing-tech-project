@@ -167,5 +167,11 @@ a {
 
  .project-feed{
   background-color: #D7D1ED;
-  background-repeat: repeat-y;
+ background-size: cover;
+ background-repeat: no-repeat;
+ display: flex;
+ flex-direction: row;
+ padding-top: 10rem;
+ padding-bottom: 10rem;
+ flex-wrap: wrap;
  }

@@ -1,8 +1,12 @@
-<div class="container-fluid p-5 mt-4">
-  <div class="project-feed">
-  <div class="project-card row row-cols-1 row-cols-md-3 p-0 m-auto">
+    <div class="container-fluid p-0">
+    <div class="project-feed">
+    <div class="project-card row row-cols-1 row-cols-md-3 p-0 m-auto"></div>
+  
+  <div class="row d-flex justify-content-center">
+  
     {{#each project}}
-    <div class="card-deck col mb-4 h-100" style="width: 20rem; height: 7rem;">
+    <div class="col-xs-12 col-sm-6 col-md-3 mb-5 p-0">
+    <div class="card-deck mb-4 h-100" style="width: 20rem; height: 7rem;">
       <div class="card-info">
       <img class="rounded-top" alt="{{this.title}}" src="{{this.image}}" style="width: 19.9rem; height: 15rem;">
       <div class="card-body">
@@ -26,7 +30,10 @@
         </div>
       </div>
     </div>
+</div>
     {{/each}}
   </div>
-</div>
-</div>
+
+    </div>
+    </div>
+    </div>
