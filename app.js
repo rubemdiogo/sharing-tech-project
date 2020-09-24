@@ -8,7 +8,7 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
-const cors = require("cors");
+/* const cors = require("cors"); */
 
 mongoose
   .connect("mongodb://localhost/sharing-tech-project", {
@@ -37,10 +37,10 @@ require("./configs/session.config")(app);
 require("./configs/passport.config")(app);
 
 // Middleware Setup
-app.use(cors());
+/* app.use(cors()); */
 app.use(logger("dev"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Express View engine setup

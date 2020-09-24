@@ -12,7 +12,7 @@ const FeedSchema = new Schema(
 
     description: { type: String, required: true },
 
-    image: { type: String, default: "/public/images/default.png" },
+    image: { type: String, default: "/images/default.png" },
   },
   {
     timestamps: true,

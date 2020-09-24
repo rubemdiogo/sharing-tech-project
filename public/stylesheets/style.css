@@ -16,29 +16,35 @@ a {
   margin: 0;
   height: 100vh;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .btn-index {
   margin-top: auto;
   margin-bottom: auto;
-  width: 250px;
+  width: 300px;
   height: 50px;
 }
 
-.container {
+.btn-index:hover {
+  box-shadow: 0 0 10px 4px white;
+}
+
+.auth-config {
   background-image: url("/images/default2.png");
   height: 100vh;
   width: 100vw;
   background-size: cover;
-  /* background-repeat: no-repeat;
-  
-  background-position: center center;
-  padding: 3em;
+  background-repeat: no-repeat;
+}
 
-   align-self: stretch;
-  justify-content: center;
-  /* position: relative;
-  align-self: stretch; */
+.auth-profileEdit{
+  background-image: url("/images/default2.png");
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .form-container {
@@ -49,6 +55,10 @@ a {
   opacity: 1;
   margin-top: 3rem;
   width: 500px;
+}
+
+.btn-form:hover {
+  box-shadow: 0 0 10px 4px white;
 }
 
 .error {
@@ -71,16 +81,18 @@ a {
   background-color: #575267;
   border: 3px solid #a0ffe3;
   width: 60rem;
-  height: 22rem;
+  height: 24rem;
   padding-top: 1rem;
   border-radius: 20px;
+  margin-left: 1rem;
 }
 
 .profile-card {
   border: 3px solid #a0ffe3;
   background-color: #a0ffe3;
   border-radius: 20px;
-  width: 600px;
+  width: 700px;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,7 +100,63 @@ a {
 }
 
 .btn-profile {
+  width: 10rem;
+}
+
+.btn-profile:hover {
+  box-shadow: 0 0 10px 4px white;
+}
+
+.card-img {
+  border: 2px solid  #a0ffe3;
+}
+
+.project-card {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-info{
+  border: 2px solid #575267;
+  border-radius: 0.5rem;
+}
+
+.btn-feed {
   width: 8rem;
 }
 
-/*# sourceMappingURL=style.css.map */
+.btn-feed:hover {
+  box-shadow: 0 0 10px 4px white;
+}
+
+.feed-config{
+  background-image: url("/images/default2.png");
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.feed-form{
+  background-color: #575267;
+  border: 3px solid #a0ffe3;
+  border-radius: 20px;
+  opacity: 1;
+  width: 500px;
+  height: 550px;
+}
+
+.form-group{
+  width: 400px;
+  margin-left: 1rem;
+}
+
+.btn-form-feed{
+  width: 20rem;
+}
+
+.btn-form-feed:hover {
+  box-shadow: 0 0 10px 4px white;
+}
+
+

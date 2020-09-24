@@ -1,27 +1,35 @@
-<h2>Create a project</h2>
+<div class="container-fluid p-0">
+  <div class="feed-config d-flex justify-content-center p-5 mt-3">
+    <div class="feed-form">
+      <form action="/project-create" method="POST" enctype="multipart/form-data">
+        <h2 class="d-flex justify-content-center mt-1" style="color: #A0FFE3;">Create a project</h2>
+        <div class="form-group">
+          <label for="title-input" style="color: #A0FFE3;">Title:</label>
+          <input type="text" name="title" id="title-input" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="description-input" style="color: #A0FFE3;">Description:</label>
+          <textarea name="description" id="description-input" cols="30" rows="4" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+          <label style="color: #A0FFE3;">Looking for:</label>
+          <select class="form-control" id="typeOfskills" name="typeOfskills" value="{{typeOfskills}}">
+            <option value="Web Developer" {{#if isWebDev}}selected{{/if}}>Web Developer</option>
+            <option value="Data Analytics" {{#if isData}}selected{{/if}}>Data Analytics</option>
+            <option value="UX/UI Design" {{#if isUx}}selected{{/if}}>UX/UI Design</option>
+          </select>
+        </div>
+         <div class="form-group">
+          <label for="image-input" style="color: #A0FFE3;">Image:</label>
+          <input type="file" name="image" id="image-input" class="form-control-file" />
+        </div>
+        <div class="d-flex justify-content-center">
+        <button type="submit" class="btn-form-feed mt-4 rounded-pill border-0 btn btn-secondary btn-lg"
+          style="background-color: #A0FFE3; color: #575267">Create</button>
+          </div>
+      </form>
+    </div>
 
-<div class="row">
-  <div class="col-md-6">
-    <form action="/project-create" method="POST" enctype="multipart/form-data">
-
-      <div class="form-group">
-        <label for="title-input">Title:</label>
-        
-      </div> 
-      <input type="text" name="title" id="title-input" class="form-control" />                                   
-      <div class="form-group">
-        <label for="description-input">Description:</label>
-        <textarea name="description" id="description-input" cols="30" rows="4" class="form-control"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="image-input">Image:</label>
-        <input type="file" name="image" id="image-input" class="form-control-file" />
-      </div>
-      <div class="form-group">
-        <label for="typeOfskills-input">Requierd Skills:</label>
-        <input type="text" name="typeOfskills" id="typeOfskills-input" class="form-control" />
-      </div>
-      <button type="submit" class="btn btn-primary">Create</button>
-    </form> 
   </div>
+</div>
 </div>

@@ -1,10 +1,28 @@
-<h1>Feed</h1>
-<hr>
-{{!-- {{#each project}}
-  <div>
-    <h3>{{title}}</h3>
-    <a href="/project-feed/{{_id}}/project-edit">Edit</a>
+<div class="container-fluid p-5 mt-4" style="background-color: #D7D1ED">
+  <div class="project-card row row-cols-1 row-cols-md-3 p-0 m-auto">
+    {{#each project}}
+    <div class="card-deck col mb-4 h-100" style="width: 20rem; height: 7rem;">
+      <div class="card-info">
+      <img class="rounded-top" alt="{{this.title}}" src="{{this.image}}" style="width: 19.9rem; height: 15rem;">
+      <div class="card-body">
+        <h3 class="card-title">{{this.title}}</h3>
+        <hr>
+        <p class="card-text pb-5"><strong>Description: </strong>{{this.description}}</p>
+      </div>
+      <hr>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" style="background-color: #D7D1ED"><strong>Looking for: </strong>{{this.typeOfskills}}</li>
+        <li class="list-group-item" style="background-color: #D7D1ED"><strong>Created By: </strong>{{createdBy.name}}</li>
+        <li class="list-group-item" style="background-color: #D7D1ED"><strong>Email: </strong>{{createdBy.email}}</li>
+        <hr>
+      </ul>
+      <div class="card-body p-0">
+        <a class="btn-feed btn-sm btn btn-secondary rounded-pill border-0 mb-2 ml-4"
+              style="background-color: #A0FFE3; color: #575267" href="/project-feed/{{_id}}/project-edit">Edit</a>
+        <a class="btn-feed btn-sm btn btn-danger rounded-pill border-0 mb-2" href="/delete-project/{{this._id}}">Delete Project</a>
+        </div>
+      </div>
+    </div>
+    {{/each}}
   </div>
-  <hr>
-{{/each}} --}}
-<a href="/project-create">Creat Project</a>
+</div>

@@ -1,12 +1,27 @@
-<h2>Edit the project: {{title}}</h2>
-<form action="/feed/{{_id}}/project-edit" method="post">
-  <label>Title:</label>
-  <input type="text" name="title" value="{{title}}" />
-  <label>Required Skill:</label>
-  <input type="text" name="typeOfSkills" value="{{typeOfSkills}}" />
-  <label>Description:</label>
-  <textarea name="description" cols="30" rows="4">{{description}}</textarea>
-  <label>Created by:</label>
-  <input type="text" name="createdBy" value="{{name}}" />
-  <button type="submit">Save changes</button>
-</form>
+<div class="container-fluid p-0">
+  <div class="feed-config d-flex justify-content-center p-5 mt-3">
+    <div class="feed-form d-flex justify-content-center">
+      <form action="/feed/project-edit/{{_id}}" method="POST" enctype="multipart/form-data">
+        <h2 class="d-flex justify-content-center mt-3" style="color: #A0FFE3;">Edit the project: {{title}}</h2>
+        <div class="form-group d-flex flex-column mt-5">
+          <label style="color: #A0FFE3;">Title: </label>
+          <input type="text" name="title" value="{{title}}" />
+          <label class="mt-3" style="color: #A0FFE3;">Needed Skill: </label>
+          <select id="typeOfskills" name="typeOfskills" value="{{typeOfskills}}">
+            <option value="Web Developer" {{#if isWebDev}}selected{{/if}}>Web Developer</option>
+            <option value="Data Analytics" {{#if isData}}selected{{/if}}>Data Analytics</option>
+            <option value="UX/UI Design" {{#if isUx}}selected{{/if}}>UX/UI Design</option>
+          </select>
+          <label class="mt-3" style="color: #A0FFE3;">Description: </label>
+          <textarea name="description" cols="30" rows="4">{{description}}</textarea>
+          <label class="mt-3" style="color: #A0FFE3;">Image:</label>
+          <input type="file" name="image" id="image-input" class="form-control-file" />
+        </div>
+        <div class="d-flex justify-content-center">
+          <button class="btn-form-feed btn-sm btn btn-secondary rounded-pill border-0 mt-2"
+            style="background-color: #A0FFE3; color: #575267" type="submit">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
