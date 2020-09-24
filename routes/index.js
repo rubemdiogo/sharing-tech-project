@@ -104,7 +104,7 @@ router.post("/profile-edit/:id", fileUploader.single("image"), async (req, res) 
     console.log(req.body);
     const result = await User.updateOne(
       { _id: req.params.id },
-      { $set: { ...req.body, image: req.file.url } }
+      { $set: { ...req.body, image: req.file ? req.file.url : req.user.image } }
     );
     console.log("update result --> ", result);
     res.redirect("/profile");
