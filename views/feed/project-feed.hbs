@@ -17,9 +17,11 @@
         <hr>
       </ul>
       <div class="card-body p-0">
+        {{#if this.isOwner}}
         <a class="btn-feed btn-sm btn btn-secondary rounded-pill border-0 mb-2 ml-4"
               style="background-color: #A0FFE3; color: #575267" href="/project-feed/{{_id}}/project-edit">Edit</a>
         <a class="btn-feed btn-sm btn btn-danger rounded-pill border-0 mb-2" href="/delete-project/{{this._id}}">Delete Project</a>
+        {{/if}}
         </div>
       </div>
     </div>

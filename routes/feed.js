@@ -7,11 +7,17 @@ const Project = require("../models/Project.model");
 const fileUploader = require("../configs/cloudinary.config");
 
 router.get("/project-feed", async (req, res, next) => {
- try{
-
-  const result = await Project.find().populate("createdBy");
-  console.log(result);
-  res.render("feed/project-feed", {project: result});
+  try{
+   
+  let result = await Project.find().populate("createdBy");
+  console.log(result); 
+  const projects = result.map(project => {
+    project.isOwner = project.createdBy._id.toString() === req.user._id.toString()
+    console.log("--->", project.createdBy._id)
+    return project
+   } )
+   console.log(projects)
+  res.render("feed/project-feed", {project: projects , loggedUser : req.user._id});
 
  } catch(err){
    console.error(err);
