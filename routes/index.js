@@ -8,7 +8,7 @@ const { replaceOne } = require("../models/User.model");
 
 const User = require("../models/User.model");
 
-// const fileUploader = require("../configs/cloudinary.config");
+const fileUploader = require("../configs/cloudinary.config");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -99,12 +99,12 @@ router.get("/profile-edit/:id", (req, res) => {
 
 //POST - update:
 
-router.post("/profile-edit/:id", async (req, res) => {
+router.post("/profile-edit/:id", fileUploader.single("image"), async (req, res) => {
   try {
     console.log(req.body);
     const result = await User.updateOne(
       { _id: req.params.id },
-      { $set: { ...req.body } }
+      { $set: { ...req.body, image: req.file.url } }
     );
     console.log("update result --> ", result);
     res.redirect("/profile");

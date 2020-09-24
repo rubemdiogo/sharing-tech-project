@@ -1,32 +1,34 @@
-<div class="container">
-  <div class="d-flex justify-content-center">
-    <form class="form-container" method="POST" action="/signup">
-      <h2 class="mb-4 pb-3 d-flex justify-content-center" style="color: #A0FFE3;"> Sign Up </h2>
-      <div class="d-flex flex-column">
-        <Label style="color: #A0FFE3;">Name:</Label>
-        <input class="rounded-pill border border-secondary" type="text" name="name">
-        {{#if name }}
-        {{>errorPartial name}}
-        {{/if}}
+<div class="container-fluid p-0">
+  <div class="auth-config">
+    <div class="d-flex justify-content-center p-5">
+      <form class="form-container" method="POST" action="/signup">
+        <h2 class="mb-4 pb-3 d-flex justify-content-center" style="color: #A0FFE3;"> Sign Up </h2>
+        <div class="d-flex flex-column">
+          <Label style="color: #A0FFE3;">Name:</Label>
+          <input class="rounded-pill border border-secondary" type="text" name="name">
+          {{#if name }}
+          {{>errorPartial name}}
+          {{/if}}
 
-        <Label class="label-form mt-2" style="color: #A0FFE3;">Email:</Label>
-        <input class="rounded-pill border border-secondary" type="email" name="email">
-        {{#if email }}
-        {{>errorPartial email}}
-        {{/if}}
+          <Label class="label-form mt-2" style="color: #A0FFE3;">Email:</Label>
+          <input class="rounded-pill border border-secondary" type="email" name="email">
+          {{#if email }}
+          {{>errorPartial email}}
+          {{/if}}
 
-        <Label class="label-form mt-2" style="color: #A0FFE3;">Password:</Label>
-        <input class="rounded-pill border border-secondary" type="password" name="password">
-        {{#if password }}
-        {{>errorPartial password}}
-        {{/if}}
+          <Label class="label-form mt-2" style="color: #A0FFE3;">Password:</Label>
+          <input class="rounded-pill border border-secondary" type="password" name="password">
+          {{#if password }}
+          {{>errorPartial password}}
+          {{/if}}
 
-        <button class="btn-form mt-4 rounded-pill border border-secondary btn btn-secondary btn-lg"
-          style="background-color: #A0FFE3; color: #575267" type="submit"> Submit </button>
-        {{#if errorMessage}}
-        {{>errorPartial errorMessage}}
-        {{/if}}
-      </div>
-    </form>
+          <button class="btn-form mt-4 rounded-pill border-0 btn btn-secondary btn-lg"
+            style="background-color: #A0FFE3; color: #575267" type="submit"> Submit </button>
+          {{#if errorMessage}}
+          {{>errorPartial errorMessage}}
+          {{/if}}
+        </div>
+      </form>
+    </div>
   </div>
 </div>
