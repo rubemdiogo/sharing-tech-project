@@ -158,5 +158,14 @@ a {
 .btn-form-feed:hover {
   box-shadow: 0 0 10px 4px white;
 }
+ .card-index{
+   box-sizing: border-box;
+   width: 300px ;
+   display: flex;
+   justify-content: space-around;
+ }
 
-
+ .project-feed{
+  background-color: #D7D1ED;
+  background-repeat: repeat-y;
+ }
