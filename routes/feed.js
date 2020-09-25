@@ -13,7 +13,6 @@ router.get("/project-feed", async (req, res, next) => {
   console.log(result); 
   const projects = result.map(project => {
     project.isOwner = project.createdBy._id.toString() === req.user._id.toString()
-    console.log("--->", project.createdBy._id)
     return project
    } )
    console.log(projects)
@@ -28,9 +27,13 @@ router.get("/project-feed", async (req, res, next) => {
 //Filtro de busca:
 
 router.get("/skill-search", (req, res) => {
-  Project.find({typeOfskills: req.query.searchSkill})
+  Project.find({typeOfskills: req.query.searchSkill}).populate("createdBy")
   .then((searchResult) => {
-    res.render("feed/project-feed", {project: searchResult})
+    const projects = searchResult.map(project => {
+      project.isOwner = project.createdBy._id.toString() === req.user._id.toString()
+      return project
+     } )
+    res.render("feed/project-feed", {project: projects})
   })
   .catch((err) => console.error(err));
 }) 
@@ -99,7 +102,6 @@ router.post("/feed/project-edit/:id", fileUploader.single("image") , async (req,
 router.get("/delete-project/:id", async (req, res) => {
   try {
     const result = await Project.deleteOne({ _id: req.params.id });
-    console.log("delete --> ", result);
     res.redirect("/project-feed");
   } catch (err) {
     console.error(err);
