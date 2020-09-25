@@ -164,14 +164,6 @@ a {
    display: flex;
    justify-content: space-around;
  }
-/* 
- .project-feed{
- display: flex;
- flex-direction: row;
- padding-top: 5rem;
- padding-bottom: 10rem;
- flex-wrap: wrap;
- } */
 
  .list-group-item{
    color: #a0ffe3;
@@ -181,4 +173,13 @@ a {
   background-color:#575267;
  background-size: cover;
  background-repeat: no-repeat;
+ }
+
+ .filter-project{
+   font-size: 1.3rem;
+   color: #a0ffe3;
+ }
+
+ .btn-feed-p:hover{
+  box-shadow: 0 0 10px 4px white;
  }
