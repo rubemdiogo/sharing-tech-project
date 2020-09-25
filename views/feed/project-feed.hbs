@@ -1,57 +1,55 @@
 <div class="container-fluid bg-gray pt-5">
 
   <form class="mt-5 ml-4" action="/skill-search" method="GET">
-    <label>Filter: </label>
-    <select name="searchSkill" value="{{typeOfskills}}">
+    <label class="filter-project mb-1"><strong class="mb-1">Filter:</strong></label>
+    <select class="rounded-pill" name="searchSkill" value="{{typeOfskills}}">
       <option value="Web Developer" selected>Web Developer</option>
       <option value="Data Analytics" selected>Data Analytics</option>
       <option value="UX/UI Design" selected>UX/UI Design</option>
     </select>
-    <button class="btn-sm btn btn-secondary rounded-pill border-0"
-            style="background-color: #A0FFE3; color: #575267" type="submit">Search</button>
-    <a class="btn-sm btn btn-secondary rounded-pill border-0"
-            style="background-color: #A0FFE3; color: #575267" href="/project-feed">Show all projects</a>
+    <button class="btn-feed-p btn-sm btn btn-secondary rounded-pill border-0 mb-1 ml-1"
+      style="background-color: #A0FFE3; color: #575267" type="submit">Search</button>
+    <a class="btn-feed-p btn-sm btn btn-secondary rounded-pill border-0 mb-1 ml-1"
+      style="background-color: #A0FFE3; color: #575267" href="/project-feed">Show all projects</a>
   </form>
 
   <div class="project-feed">
- {{!--   <div class="project-card row row-cols-1 row-cols-md-3 p-0"> --}}
-      <div class="row">
+    <div class="row">
 
-        {{#each project}}
-        <div class="col-xs-12 col-sm-6 col-md-3 m-5 p-0">
-          <div class="card-deck mb-4 h-100" >
-            <div class="card-info">
-              <img class="card-img-top rounded-top" alt="{{this.title}}" src="{{this.image}}" style="width: 19.9rem; height: 15rem;">
-              <div class="card-body">
-                <h3 class="card-title" style="color: #a0ffe3;">{{this.title}}</h3>
-                <hr>
-                <p class="card-text pb-5" style="color: #a0ffe3;"><strong>Description: </strong>{{this.description}}</p>
-              </div>
+      {{#each project}}
+      <div class="col-xs-12 col-sm-6 col-md-3 m-5 p-0">
+        <div class="card-deck mb-4 h-100">
+          <div class="card-info">
+            <img class="card-img-top rounded-top" alt="{{this.title}}" src="{{this.image}}"
+              style="width: 19.9rem; height: 15rem;">
+            <div class="card-body">
+              <h3 class="card-title" style="color: #a0ffe3;">{{this.title}}</h3>
               <hr>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item" style="background-color: #575267"><strong>Looking for:
-                  </strong>{{this.typeOfskills}}</li>
-                <li class="list-group-item" style="background-color: #575267"><strong>Created By:
-                  </strong>{{createdBy.name}}</li>
-                <li class="list-group-item" style="background-color: #575267"><strong>Email:
-                  </strong>{{createdBy.email}}
-                </li>
-                <hr>
-              </ul>
-              <div class="card-body p-0">
-                {{#if this.isOwner}}
-                <a class="btn-feed btn-sm btn btn-secondary rounded-pill border-0 mb-2 ml-4"
-                  style="background-color: #A0FFE3; color: #575267" href="/project-feed/{{_id}}/project-edit">Edit</a>
-                <a class="btn-feed btn-sm btn btn-danger rounded-pill border-0 mb-2"
-                  href="/delete-project/{{this._id}}">Delete Project</a>
-                {{/if}}
-              </div>
+              <p class="card-text pb-5" style="color: #a0ffe3;"><strong>Description: </strong>{{this.description}}</p>
+            </div>
+            <hr>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item" style="background-color: #575267"><strong>Looking for:
+                </strong>{{this.typeOfskills}}</li>
+              <li class="list-group-item" style="background-color: #575267"><strong>Created By:
+                </strong>{{createdBy.name}}</li>
+              <li class="list-group-item" style="background-color: #575267"><strong>Email:
+                </strong>{{createdBy.email}}
+              </li>
+              <hr>
+            </ul>
+            <div class="card-body p-0">
+              {{#if this.isOwner}}
+              <a class="btn-feed btn-sm btn btn-secondary rounded-pill border-0 mb-2 ml-4"
+                style="background-color: #A0FFE3; color: #575267" href="/project-feed/{{_id}}/project-edit">Edit</a>
+              <a class="btn-feed btn-sm btn btn-danger rounded-pill border-0 mb-2"
+                href="/delete-project/{{this._id}}">Delete Project</a>
+              {{/if}}
             </div>
           </div>
         </div>
-        {{/each}}
       </div>
-
- {{!--    </div> --}}
+      {{/each}}
+    </div>
   </div>
 </div>
