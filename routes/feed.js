@@ -25,6 +25,17 @@ router.get("/project-feed", async (req, res, next) => {
   
 });
 
+//Filtro de busca:
+
+router.get("/skill-search", (req, res) => {
+  Project.find({typeOfskills: req.query.searchSkill})
+  .then((searchResult) => {
+    res.render("feed/project-feed", {project: searchResult})
+  })
+  .catch((err) => console.error(err));
+}) 
+
+
 // CRUD:
 
 //GET - create:
