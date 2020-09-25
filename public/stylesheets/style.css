@@ -180,6 +180,11 @@ a {
    color: #a0ffe3;
  }
 
+ .card-text{
+   box-sizing: border-box;
+   word-break: break-word;
+ }
+
  .btn-feed-p:hover{
   box-shadow: 0 0 10px 4px white;
  }
